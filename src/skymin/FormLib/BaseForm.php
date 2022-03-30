@@ -24,7 +24,7 @@ abstract class BaseForm implements Form{
 			if($this->close !== null){
 				($this->onClose)($player);
 			}
-			return true
+			return true;
 		}
 		return false;
 	}

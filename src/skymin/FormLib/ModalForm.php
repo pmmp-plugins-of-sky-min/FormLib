@@ -32,12 +32,12 @@ final class ModalForm extends BaseForm{
 			'content' => $this->content,
 			'button1' => $this->trueForm,
 			'button2' => $this->falseForm
-		]
+		];
 	}
 
 	public function handleResponse(Player $player, $data) : void{
 		if($this->isClosed($player)) return;
-		($this->closeHandler)($player, $data)
+		($this->closeHandler)($player, $data);
 	}
 
 }

@@ -14,7 +14,7 @@ abstract class Selector extends Element{
 	}
 
 	public final function getOption(int $index) : ?string{
-		return $this->options[$index] ?? null
+		return $this->options[$index] ?? null;
 	}
 
 }

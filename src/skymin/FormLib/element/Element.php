@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib\element;
 
-abstract Element implements \JsonSerialize{
+abstract class Element implements \JsonSerialize{
 
 	public function __construct(protected string $text){}
 

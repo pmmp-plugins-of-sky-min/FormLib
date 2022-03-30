@@ -10,7 +10,7 @@ final class StepSlider extends Selector{
 			'type' => 'step_slider',
 			'steps' => $this->options,
 			'default' => $this->default
-		]
+		];
 	}
 
 }

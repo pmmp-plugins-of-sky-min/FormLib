@@ -18,7 +18,7 @@ final class Input extends Element{
 			'type' => 'input',
 			'placeholder' => $this->hint,
 			'default' => $this->default
-		]
+		];
 	}
 
 }

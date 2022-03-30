@@ -31,7 +31,7 @@ final class MenuForm extends BaseForm{
 
 	public function handleResponse(Player $player, $data){
 		if($this->isClosed($player, $data)) return;
-		($this->buttons[$data])->handle($player)
+		($this->buttons[$data])->handle($player);
 	}
 
 }

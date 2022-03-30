@@ -13,7 +13,7 @@ final class Toggle extends Element{
 		return [
 			'type' => 'toggle',
 			'default' => $this->default
-		]
+		];
 	}
 
 }
