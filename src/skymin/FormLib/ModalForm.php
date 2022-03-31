@@ -3,7 +3,6 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib;
 
-use skymin\FormLib\element\Button;
 
 use pocketmine\player\Player;
 
