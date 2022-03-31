@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib;
 
-use skymin\FormLib\element\Element;
+use skymin\FormLib\element\{Element, Label, Selector};
 
 use pocketmine\player\Player;
 
@@ -34,7 +34,17 @@ final class CustomForm extends BaseForm{
 
 	public function handleResponse(Player $player, $data) : void{
 		if($this->isClosed($player, $data)) return;
-		($this->submit)($player, $data);
+		$newData = [];
+		foreach($data as $key => $value){
+			$element = $this->elements[$key];
+			if($element instanceof Label) continue;
+			if($element instanceof Selector){
+				$newData[] = $element->getOption($value);
+				continue;
+			}
+			$newData[] = $value;
+		}
+		($this->submit)($player, $newData);
 	}
 
 }
