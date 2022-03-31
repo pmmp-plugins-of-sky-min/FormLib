@@ -35,14 +35,17 @@ final class CustomForm extends BaseForm{
 	public function handleResponse(Player $player, $data) : void{
 		if($this->isClosed($player, $data)) return;
 		$newData = [];
-		foreach($data as $key => $value){
-			$element = $this->elements[$key];
+		foreach($this->elemeass as $key => $element){
 			if($element instanceof Label) continue;
-			if($element instanceof Selector){
-				$newData[] = $element->getOption($value);
+			if(!isset($data[$key])){
+				$newData[] = null;
 				continue;
 			}
-			$newData[] = $value;
+			if($element instanceof Selector){
+				$newData[] = $element->getOption($data[$key]);
+				continue;
+			}
+			$newData[] = $data[$key];
 		}
 		($this->submit)($player, $newData);
 	}
