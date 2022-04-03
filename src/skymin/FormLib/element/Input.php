@@ -26,7 +26,7 @@ final class Input extends Element{
 		return [
 			'type' => 'input',
 			'placeholder' => $this->hint,
-			'default' => is_string($default) ? $default : (string) $default;
+			'default' => is_string($default) ? $default : (string) $default
 		];
 	}
 
