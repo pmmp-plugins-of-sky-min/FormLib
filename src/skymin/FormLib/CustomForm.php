@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib;
 
-use skymin\FormLib\element\{Element, Label, Selector};
+use skymin\FormLib\element\{Element, Label, Input, Selector};
 
 use pocketmine\player\Player;
 
@@ -43,6 +43,10 @@ final class CustomForm extends BaseForm{
 			}
 			if($element instanceof Selector){
 				$newData[] = $element->getOption($data[$key]);
+				continue;
+			}
+			if($element instanceof Input){
+				$newData[] = $element->changeData($data[$key]);
 				continue;
 			}
 			$newData[] = $data[$key];
