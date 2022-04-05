@@ -5,6 +5,7 @@ namespace skymin\FormLib;
 
 use skymin\FormLib\element\{Element, Label, Input, Selector};
 
+use pocketmine\utils\Utils;
 use pocketmine\player\Player;
 
 use \Closure;
@@ -23,6 +24,7 @@ final class CustomForm extends BaseForm{
 		?Closure $closeHandler = null
 	){
 		parent::__construct($title, $closeHandler);
+		Utils::validateCallableSignature(function(Player $player, array $data) : void{}, $this->submit);
 	}
 
 	protected function formData() : array{
@@ -38,6 +40,10 @@ final class CustomForm extends BaseForm{
 		foreach($this->elemeass as $key => $element){
 			if($element instanceof Label) continue;
 			if(!isset($data[$key])){
+				if($element instanceof Input){
+					$newData[] = $element->getDefault();
+					continue;
+				}
 				$newData[] = null;
 				continue;
 			}

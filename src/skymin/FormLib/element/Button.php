@@ -3,9 +3,10 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib\element;
 
+use pocketmine\utils\Utils;
 use pocketmine\player\Player;
 
-class Button implements \JsonSerialize{
+final class Button implements \JsonSerialize{
 
 	/**
 	 * @param \Closure $handler signature `function(Player $player)`
@@ -14,7 +15,9 @@ class Button implements \JsonSerialize{
 		private \Closure $handler,
 		private string $text,
 		private ?FormIcon $icon = null
-	){}
+	){
+		Utils::validateCallableSignature(function(Player $player) : void{}, $this->handler);
+	}
 
 	public function jsonSerialize() : array{
 		$button = ['text' => $this->text];
@@ -22,10 +25,6 @@ class Button implements \JsonSerialize{
 			$button['image'] = $this->icon;
 		}
 		return $button;
-	}
-
-	public function getText() : string{
-		return $this->text;
 	}
 
 	public final function handle(Player $player) : void{
