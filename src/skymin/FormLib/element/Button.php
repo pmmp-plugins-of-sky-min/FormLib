@@ -27,7 +27,7 @@ final class Button implements \JsonSerialize{
 		return $button;
 	}
 
-	public final function handle(Player $player) : void{
+	public function handle(Player $player) : void{
 		($this->handler)($player);
 	} 
 
