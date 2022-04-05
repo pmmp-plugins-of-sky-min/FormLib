@@ -19,7 +19,10 @@ final class Input extends Element{
 		private int|float|string $default = '',
 		private string $hint = '',
 		private string $type = self::TYPE_STRING,
-		/** @see Input::changeData() */
+		/**
+		 * @see Input::changeData()
+		 * @see Input::getDefault()
+		 */
 		private bool $canReturnDefault = false
 	){
 		parent::__construct($text);
@@ -35,6 +38,7 @@ final class Input extends Element{
 	}
 
 	public function getDefault() : null|int|float|string{
+		if(!$this->canReturnDefault) return null;
 		$default = $this->default;
 		if(trim($default) === ''){
 			return null;
