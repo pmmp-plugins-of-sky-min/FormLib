@@ -51,7 +51,7 @@ final class Input extends Element{
 		return match($this->type){
 			self::TYPE_STRING => $data,
 			self::TYPE_INT => $this->changeInt($data),
-			self::TYPE_FLOAT => $this->changeFloat($data)
+			self::TYPE_FLOAT => $this->changeFloat($data),
 			default => false
 		};
 	}
