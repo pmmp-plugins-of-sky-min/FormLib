@@ -3,7 +3,9 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib;
 
+use skymin\FormLib\element\Button;
 
+use pocketmine\utils\Uitls;
 use pocketmine\player\Player;
 
 use \Closure;
@@ -23,6 +25,7 @@ final class ModalForm extends BaseForm{
 		?Closure $closeHandler = null
 	){
 		parent::__construct($title, $closeHandler);
+		Utils::validateCallableSignature(function(Player $player, bool $data) : void{}, $this->submit);
 	}
 
 	public function formData() : array{
@@ -36,7 +39,7 @@ final class ModalForm extends BaseForm{
 
 	public function handleResponse(Player $player, $data) : void{
 		if($this->isClosed($player)) return;
-		($this->closeHandler)($player, $data);
+		($this->submit)($player, $data);
 	}
 
 }
