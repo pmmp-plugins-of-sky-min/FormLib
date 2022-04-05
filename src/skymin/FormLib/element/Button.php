@@ -6,7 +6,7 @@ namespace skymin\FormLib\element;
 use pocketmine\utils\Utils;
 use pocketmine\player\Player;
 
-final class Button implements \JsonSerialize{
+final class Button implements \JsonSerializable{
 
 	/**
 	 * @param \Closure $handler signature `function(Player $player)`

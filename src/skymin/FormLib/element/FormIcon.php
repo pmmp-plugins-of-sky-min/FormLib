@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace skymin\FormLib\element;
 
-final class FormIcon implements \JsonSerialize{
+final class FormIcon implements \JsonSerializable{
 
 	public const IMAGE_TYPE_URL = 'url';
 	public const IMAGE_TYPE_PATH = 'path';
