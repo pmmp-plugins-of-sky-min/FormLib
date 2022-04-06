@@ -25,11 +25,12 @@ final class MenuForm extends BaseForm{
 	protected function formData() : array{
 		return[
 			'type' => 'form',
+			'content' => $this->content,
 			'buttons' => $this->buttons
 		];
 	}
 
-	public function handleResponse(Player $player, $data){
+	public function handleResponse(Player $player, $data) : void{
 		if($this->isClosed($player, $data)) return;
 		($this->buttons[$data])->handle($player);
 	}

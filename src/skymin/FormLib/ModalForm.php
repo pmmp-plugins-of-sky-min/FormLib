@@ -5,7 +5,7 @@ namespace skymin\FormLib;
 
 use skymin\FormLib\element\Button;
 
-use pocketmine\utils\Uitls;
+use pocketmine\utils\Utils;
 use pocketmine\player\Player;
 
 use \Closure;
@@ -32,13 +32,13 @@ final class ModalForm extends BaseForm{
 		return [
 			'type' => 'modal',
 			'content' => $this->content,
-			'button1' => $this->trueForm,
-			'button2' => $this->falseForm
+			'button1' => $this->trueButton,
+			'button2' => $this->falseButton
 		];
 	}
 
 	public function handleResponse(Player $player, $data) : void{
-		if($this->isClosed($player)) return;
+		if($this->isClosed($player, $data)) return;
 		($this->submit)($player, $data);
 	}
 
