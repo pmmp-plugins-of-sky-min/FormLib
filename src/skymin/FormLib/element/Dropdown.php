@@ -30,7 +30,6 @@ final class Dropdown extends Selector{
 	protected function elementData() : array{
 		return [
 			'type' => 'dropdown',
-			'text' => $this->text,
 			"options" => $this->options,
 			"default" => $this->default
 		];
