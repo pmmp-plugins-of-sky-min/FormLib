@@ -15,7 +15,7 @@ final class Slider extends Element{
 		parent::__construct($text);
 	}
 
-	protected function elenmentData() : array{
+	protected function elementData() : array{
 		return [
 			'type' => 'slider',
 			'min' => $this->min,

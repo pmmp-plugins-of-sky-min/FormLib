@@ -9,6 +9,7 @@ use pocketmine\utils\Utils;
 use pocketmine\player\Player;
 
 use \Closure;
+use function trim;
 
 final class CustomForm extends BaseForm{
 
@@ -52,6 +53,10 @@ final class CustomForm extends BaseForm{
 				continue;
 			}
 			if($element instanceof Input){
+				if(trim($data[$key]) === ''){
+					$newData[] = $element->getDefault();
+					continue;
+				}
 				$newData[] = $element->changeData($data[$key]);
 				continue;
 			}
